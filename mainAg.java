@@ -22,7 +22,7 @@ public class mainAg {
 		try
 		{
 			
-			FileReader arq = new FileReader("C:\\Users\\Rodrigo\\eclipse-workspace\\Anagramas_Hack\\src\\palavras.txt");
+			FileReader arq = new FileReader("C:\\palavras.txt");
 			BufferedReader lerArq = new BufferedReader(arq);
 			
 			String linha = lerArq.readLine();
@@ -38,7 +38,7 @@ public class mainAg {
 
 			while (op.intern() != "1")
 			{
-				System.out.println("Insira a express„o desejada:");
+				System.out.println("Insira a express√£o desejada:");
 				System.out.println("");
 			
 				BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
@@ -51,10 +51,10 @@ public class mainAg {
 				
 				// verificar se a entrada foi valida conforme as regras
 				if (!validarEntrada(op))
-					throw new Exception("Caracteres inv·lidos encontrados.");
+					throw new Exception("Caracteres inv√°lidos encontrados.");
 				
 			
-				// reinicia vari·veis
+				// reinicia vari√°veis
 				proibidos = new HashSet<String>();
 				listan = new HashSet<String>();
 				anok = "";
@@ -63,11 +63,11 @@ public class mainAg {
 				// copia as palavras lidas do arquivo
 				palavras.addAll(palavrasArq);
 				
-				//descarta palavras que n„o s„o anagramas
+				//descarta palavras que n√£o s√£o anagramas
 				otimizarPalavras(palavras, op);
 				
 			
-				System.out.println("Express„o: " + op);
+				System.out.println("Express√£o: " + op);
 				System.out.println("");
 				System.out.println("----------------------------------------------");
 				
@@ -89,7 +89,7 @@ public class mainAg {
 			System.out.println(e.toString());
 		}
 		
-		System.out.println("AtÈ logo!");
+		System.out.println("At√© logo!");
 		System.out.println("");		
 	}
 	
@@ -105,7 +105,7 @@ public class mainAg {
 			if (an.length() <= exp.length() && !procurarAnagrama(an, exp)
 					|| an.length() > exp.length())
 			{
-				// remove palavra da cÛpia
+				// remove palavra da c√≥pia
 				palavras.remove(an);
 			}
 		}
@@ -201,21 +201,21 @@ public class mainAg {
 			}
 		}
 		
-		// se estiver no primeiro nÌvel, ir· fazer o teste se foi bem sucedido
+		// se estiver no primeiro n√≠vel, ir√° fazer o teste se foi bem sucedido
 		if (nivel == 0)
 		{
 
-			// se n„o foi bem sucessedido, anota que esta combinaÁ„o n„o È anagrama
+			// se n√£o foi bem sucessedido, anota que esta combina√ß√£o n√£o √© anagrama
 			if (novoAnagrama.length()>0) {
 				proibidos.add(anok);
 				
 				// limpa anagrama da vez
 				anok = "";
 				
-				// n˙mero de repetiÁıes sem achar nada
+				// n√∫mero de repeti√ß√µes sem achar nada
 				repet++;
 			}
-			// se for bem sucedido, anota que esta combinaÁ„o È anagrama e para n„o repeti-la.
+			// se for bem sucedido, anota que esta combina√ß√£o √© anagrama e para n√£o repeti-la.
 			else {
 				
 				if (!listan.contains(anok))
